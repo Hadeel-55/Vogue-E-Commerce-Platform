@@ -19,10 +19,12 @@
     color: white;
 }
 
+.nav-link.active{
+    color: blue !important; 
+}
 .nav-link:hover{
     color: blue !important; 
 }
-
 .navBtn:hover{
 color: blue !important;
 }
@@ -33,7 +35,7 @@ color: blue !important;
 }
 
 .navDiv {
-
+color: black;
   width: 50px;
   height: 50px;
   display: flex;
@@ -52,4 +54,35 @@ color: blue !important;
         width: 45px;             
         height: 45px;
     }
+}
+/* Hero */
+
+.heroBtn:hover{
+    background-color: #007bff !important;
+    color: white !important;
+}
+/* Deal */
+
+.blue-shadow-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; 
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.dealImg:hover .blue-shadow-overlay {
+
+  background-color: rgba(69, 48, 253, 0.664); 
+  
+}
+.brand-logo {
+  max-height: 80px; 
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.brand-logo:hover {
+  opacity: 1;
 }

@@ -8,6 +8,7 @@ import {
   Button,
   Stack,
 } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUser, FaSearch, FaHeart } from "react-icons/fa";
 import logo from "../assets/logo.png";
@@ -15,7 +16,7 @@ const Navbar = () => {
   return (
     <BootstrapNavbar expand="lg" className="shadow fixed-top bg-white ">
       <Container>
-        <BootstrapNavbar.Brand as={Link} to="/">
+        <BootstrapNavbar.Brand as={NavLink} to="/">
           <img src={logo} alt="fashiop" />
         </BootstrapNavbar.Brand>
         <BootstrapNavbar.Toggle
@@ -28,13 +29,13 @@ const Navbar = () => {
           "
             style={{ fontSize: "12px" }}
           >
-            <Nav.Link as={Link} to="/" className="active text-primary ">
+            <Nav.Link as={NavLink} to="/" className=" text-primary ">
               HOME
             </Nav.Link>
 
             <NavDropdown title="SHOP" className="no-caret  ">
               <NavDropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/ShopCategory"
                 className="fw-semibold"
               >
@@ -42,7 +43,7 @@ const Navbar = () => {
               </NavDropdown.Item>
 
               <NavDropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/ProductDetails"
                 className="fw-semibold"
               >
@@ -50,7 +51,7 @@ const Navbar = () => {
               </NavDropdown.Item>
 
               <NavDropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/ProductCheckout"
                 className="fw-semibold"
               >
@@ -58,7 +59,7 @@ const Navbar = () => {
               </NavDropdown.Item>
 
               <NavDropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/ShoppingCart"
                 className="fw-semibold"
               >
@@ -66,7 +67,7 @@ const Navbar = () => {
               </NavDropdown.Item>
 
               <NavDropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/Confirmation"
                 className="fw-semibold"
               >
@@ -75,12 +76,12 @@ const Navbar = () => {
             </NavDropdown>
 
             <NavDropdown title="BLOG" className="no-caret">
-              <Dropdown.Item as={Link} to="/Blog" className="fw-semibold">
+              <Dropdown.Item as={NavLink} to="/Blog" className="fw-semibold">
                 BLOG
               </Dropdown.Item>
 
               <Dropdown.Item
-                as={Link}
+                as={NavLink}
                 to="/BlogDetails"
                 className="fw-semibold"
               >
@@ -89,46 +90,64 @@ const Navbar = () => {
             </NavDropdown>
 
             <NavDropdown title="PAGES" className="no-caret">
-              <Dropdown.Item as={Link} to="Login" className="fw-semibold">
+              <Dropdown.Item as={NavLink} to="Login" className="fw-semibold">
                 LOGIN
               </Dropdown.Item>
 
-              <Dropdown.Item as={Link} to="Teacking" className="fw-semibold">
+              <Dropdown.Item as={NavLink} to="Teacking" className="fw-semibold">
                 TEACKING
               </Dropdown.Item>
 
-              <Dropdown.Item as={Link} to="Elements" className="fw-semibold">
+              <Dropdown.Item as={NavLink} to="Elements" className="fw-semibold">
                 ELEMENTS
               </Dropdown.Item>
             </NavDropdown>
 
-            <Nav.Link as={Link} to="/" className="">
+            <Nav.Link as={NavLink} to="/" className="">
               CONTACT
             </Nav.Link>
           </Nav>
+
           <div className=" d-flex gap-2 align-items-center mt-3 mt-lg-0 ">
-          
-            <div className="navDiv border-lg-start border-lg-end ">
-              <FaSearch />
-            </div>
-            {/* <div className="vr " style={{ height: "60px" }}></div> */}
-            <div className="navDiv   border-lg-start ">
-              <FaUser />
-            </div>
-
-            {/* <div className="vr" style={{ height: "60px" }}></div> */}
-
-            <div className="navDiv  border-lg-start ">
-              <FaHeart />
+            <div className=" navDiv">
+              <Nav.Link
+                as={Link}
+                to="/search"
+                className=" border-lg-start border-lg-end "
+              >
+                <FaSearch />
+              </Nav.Link>
             </div>
 
-            {/* <div className="vr" style={{ height: "60px" }}></div> */}
-
-            <div className="navDiv  border-lg-start border-lg-end ">
-              <FaShoppingCart />
+            <div className=" navDiv">
+              <Nav.Link
+                as={Link}
+                to="/profile"
+                className=" border-lg-start border-lg-end "
+              >
+                <FaUser />
+              </Nav.Link>
             </div>
 
-            {/* <div className="vr " style={{ height: "60px" }}></div> */}
+            <div className=" navDiv">
+              <Nav.Link
+                as={Link}
+                to="/wonder"
+                className=" border-lg-start border-lg-end "
+              >
+                <FaHeart />
+              </Nav.Link>
+            </div>
+
+            <div className=" navDiv">
+              <Nav.Link
+                as={Link}
+                to="/cart"
+                className=" border-lg-start border-lg-end "
+              >
+                <FaShoppingCart />
+              </Nav.Link>
+            </div>
           </div>
         </BootstrapNavbar.Collapse>
       </Container>
