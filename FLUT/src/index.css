@@ -86,3 +86,12 @@ color: black;
 .brand-logo:hover {
   opacity: 1;
 }
+
+/* Footer */
+.FooterIcon{
+  color: gray;
+  transition: 0.4s;
+}
+.FooterIcon:hover{
+  color: #007bff;
+}
