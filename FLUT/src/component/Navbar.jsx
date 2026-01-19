@@ -1,3 +1,5 @@
+import {useContext} from 'react';
+import { CartContext } from '../context/CartContext';
 import {
   Navbar as BootstrapNavbar,
   Badge,
@@ -10,9 +12,11 @@ import {
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaUser, FaSearch, FaHeart } from "react-icons/fa";
+import {  FaUser, FaSearch } from "react-icons/fa";
+import { FiHeart ,FiShoppingCart} from 'react-icons/fi';
 import logo from "../assets/logo.png";
 const Navbar = () => {
+  const {totalItem} =useContext(CartContext);
   return (
     <BootstrapNavbar expand="lg" className="shadow fixed-top bg-white ">
       <Container>
@@ -135,17 +139,32 @@ const Navbar = () => {
                 to="/wonder"
                 className=" border-lg-start border-lg-end "
               >
-                <FaHeart />
+                <FiHeart />
+
               </Nav.Link>
             </div>
 
             <div className=" navDiv">
               <Nav.Link
                 as={Link}
-                to="/cart"
-                className=" border-lg-start border-lg-end "
+                to="/ShoppingCart"
+                className=" border-lg-start border-lg-end position-relative"
               >
-                <FaShoppingCart />
+                <FiShoppingCart />
+
+{totalItem > 0 &&(
+<Badge
+pill 
+bg='danger'
+className='position-absolute top-0 start-100 translate-middle dage rounded-pill'
+style={{fontSize:'0.7rem'}}
+>
+{totalItem}
+</Badge>
+
+)}
+
+
               </Nav.Link>
             </div>
           </div>

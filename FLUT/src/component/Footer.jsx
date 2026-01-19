@@ -1,6 +1,6 @@
 import { Container, Col, Row, Form, Button } from "react-bootstrap";
 
-import { FaFacebook, FaTwitter, FaDribbble, FaBehance } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaDribbble, FaBehance ,FaHeart } from "react-icons/fa";
 import Image1 from '../assets/image-01.jpg';
 import Image2 from '../assets/image-02.jpg';
 import Image3 from '../assets/image-03.jpg';
@@ -64,6 +64,13 @@ const Footer = () => {
             <FaBehance className="FooterIcon"/>
         </div>
         </Col>
+      </Row>
+
+      <Row className="justify-content-center mt-5 pt-5 text-center">
+        <Col lg={5} >
+         <p className="text-muted" style={{fontSize:'14px'}}>Copyright&copy;2026 All rights reserved | This template is made with <FaHeart className="text-primary" style={{fontSize:'13px'}}/> by <a href="" className="text-primary text-decoration-none" style={{fontSize:'14px'}}>Colorblib</a>  </p>
+        </Col>
+       
       </Row>
     </Container>
   );
