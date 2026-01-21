@@ -12,7 +12,7 @@ const ProductList = ({ Products }) => {
     indexOfFirstProduct,
     indexOfLastProduct
   );
-  const totalPages = Math.ceil((Products.length || 0) / productsPerPage);
+  const totalPages = Math.ceil((Products?.length || 0) / productsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
