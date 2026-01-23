@@ -79,20 +79,6 @@ const Navbar = () => {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <NavDropdown title="BLOG" className="no-caret">
-              <Dropdown.Item as={NavLink} to="/Blog" className="fw-semibold">
-                BLOG
-              </Dropdown.Item>
-
-              <Dropdown.Item
-                as={NavLink}
-                to="/BlogDetails"
-                className="fw-semibold"
-              >
-                BLOG DETAILS
-              </Dropdown.Item>
-            </NavDropdown>
-
             <NavDropdown title="PAGES" className="no-caret">
               <Dropdown.Item as={NavLink} to="Login" className="fw-semibold">
                 LOGIN
@@ -102,12 +88,9 @@ const Navbar = () => {
                 TEACKING
               </Dropdown.Item>
 
-              <Dropdown.Item as={NavLink} to="Elements" className="fw-semibold">
-                ELEMENTS
-              </Dropdown.Item>
             </NavDropdown>
 
-            <Nav.Link as={NavLink} to="/" className="">
+            <Nav.Link as={NavLink} to="/Contact" className="">
               CONTACT
             </Nav.Link>
           </Nav>

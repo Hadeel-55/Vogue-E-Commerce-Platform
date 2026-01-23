@@ -1,6 +1,6 @@
 import { Row, Col, Pagination } from "react-bootstrap";
 import ProductCard from "./ProductCard";
-import { useState } from "react";
+import { lazy, useState } from "react";
 const ProductList = ({ Products }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;

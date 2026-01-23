@@ -3,7 +3,33 @@ import Cart from "../component/Cart";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import Swal from 'sweetalert2';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 const ShoppingCart = () => {
+
+const navigate = useNavigate();
+const location = useLocation();
+
+    const handleCheckout = () => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+        if (isLoggedIn === 'true') {
+            navigate('/ProductCheckout');
+        } else {
+            Swal.fire({
+                title: 'Alert',
+                text: 'Please log in first to complete your purchase.',
+                icon: 'warning',
+                confirmButtonText: 'Log in now'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/Login', { state: { from:location } });
+                }
+            });
+        }
+    };
+
   const { totalPrice } = useContext(CartContext);
   return (
     <div>
@@ -53,7 +79,7 @@ const ShoppingCart = () => {
                     <input
                       type="text"
                       placeholder="Coupon Code"
-                      className="form-control"
+                      className="text-muted bg-muted  bg-light rounded-2 bg-light" style={{border:'1px solid #d4d4d4', padding:'6px'  }}
                     />
                     <div className="position-absolute top-0 end-0 ">
                       <Button type="submit" className="rounded-0 ps-4 pe-4">
@@ -135,7 +161,7 @@ const ShoppingCart = () => {
                   id="city"
                   className="p-2 text-muted bg-muted bg-light rounded-2 form-select "
                 >
-                  <option value="" diabled selected hidden>
+                  <option value="" disabled selected hidden>
                     {" "}
                     City
                   </option>
@@ -146,7 +172,7 @@ const ShoppingCart = () => {
                 <input
                   type="text"
                   placeholder=" Postcode/Zipcode"
-                  className="p-2 text-muted bg-muted bg-light rounded-2 form-control "
+                  className="p-2 text-muted bg-muted bg-light rounded-2  " style={{border:'1px solid #d4d4d4',  }}
                 />
                 <Button type="button" className="mt-3">
                   UPDATE DETAILS
@@ -163,11 +189,11 @@ const ShoppingCart = () => {
                       CONTINUE SHOPPING
                     </Button>
                   </a>
-                  <a href="/ProductCheckout">
-                    <Button variant="outline-primary" className="fw-semibold">
+         
+                    <Button variant="outline-primary" className="fw-semibold" onClick={handleCheckout}>
                       PROCEED TO CHECKOUT
                     </Button>
-                  </a>
+              
                 </div>
               </Col>
             </Row>
