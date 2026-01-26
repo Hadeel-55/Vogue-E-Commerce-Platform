@@ -2,9 +2,17 @@ import ProductList from "../component/ProductList";
 import Hero from "../component/Hero";
 import Deal from "../component/Deal";
 import { Container } from "react-bootstrap";
-import products from '../data/allProducts';
+import products from "../data/allProducts";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+
+  const filterSearch = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
   return (
     <div>
       <Hero
@@ -17,7 +25,7 @@ const Home = () => {
       />
       <Container className="mt-5">
         <Deal />
-        <ProductList Products={products} />
+        <ProductList Products={filterSearch} />
       </Container>
     </div>
   );

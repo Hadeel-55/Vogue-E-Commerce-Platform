@@ -1,5 +1,5 @@
-import {useContext} from 'react';
-import { CartContext } from '../context/CartContext';
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import {
   Navbar as BootstrapNavbar,
   Badge,
@@ -7,16 +7,33 @@ import {
   Nav,
   NavDropdown,
   Dropdown,
-  Button,
-  Stack,
+  Form,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {  FaUser, FaSearch } from "react-icons/fa";
-import { FiHeart ,FiShoppingCart} from 'react-icons/fi';
+import { FaUser, FaSearch, FaTimes } from "react-icons/fa";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import logo from "../assets/logo.png";
+ئ;
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 const Navbar = () => {
-  const {totalItem} =useContext(CartContext);
+  const navigate = useNavigate();
+
+  const [searchTrem, setSearchTrem] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const handlesearch = (e) => {
+    e.preventDefault();
+
+    if (searchTrem.trim()) {
+      navigate(`/?search=${searchTrem}`);
+      setIsSearchOpen(false);
+    }
+  };
+
+  const { totalItem } = useContext(CartContext);
   return (
     <BootstrapNavbar expand="lg" className="shadow fixed-top bg-white ">
       <Container>
@@ -48,7 +65,7 @@ const Navbar = () => {
 
               <NavDropdown.Item
                 as={NavLink}
-                to="/ProductDetails"
+                to="/Product/1"
                 className="fw-semibold"
               >
                 PRODUCT DETAILS
@@ -87,7 +104,6 @@ const Navbar = () => {
               <Dropdown.Item as={NavLink} to="Teacking" className="fw-semibold">
                 TEACKING
               </Dropdown.Item>
-
             </NavDropdown>
 
             <Nav.Link as={NavLink} to="/Contact" className="">
@@ -96,16 +112,31 @@ const Navbar = () => {
           </Nav>
 
           <div className=" d-flex gap-2 align-items-center mt-3 mt-lg-0 ">
-            <div className=" navDiv">
+            <div className=" navDiv" style={{ position: "relative" }}>
               <Nav.Link
-                as={Link}
-                to="/search"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className=" border-lg-start border-lg-end "
               >
-                <FaSearch />
+                {isSearchOpen ? <FaTimes /> : <FaSearch />}
               </Nav.Link>
-            </div>
 
+              {isSearchOpen && (
+                <div className="search-dropdown-card">
+                  <h6 className="mb-3">Enter your search</h6>
+                  <Form onSubmit={handlesearch}>
+                    <Form.Control
+                      type="text"
+                      autoFocus
+                      placeholder="Search for products..."
+                      className="search-input "
+                      style={{ minWidth: "250px" }}
+                      value={searchTrem}
+                      onChange={(e) => setSearchTrem(e.target.value)}
+                    />
+                  </Form>
+                </div>
+              )}
+            </div>
             <div className=" navDiv">
               <Nav.Link
                 as={Link}
@@ -123,7 +154,6 @@ const Navbar = () => {
                 className=" border-lg-start border-lg-end "
               >
                 <FiHeart />
-
               </Nav.Link>
             </div>
 
@@ -135,19 +165,16 @@ const Navbar = () => {
               >
                 <FiShoppingCart />
 
-{totalItem > 0 &&(
-<Badge
-pill 
-bg='danger'
-className='position-absolute top-0 start-100 translate-middle dage rounded-pill'
-style={{fontSize:'0.7rem'}}
->
-{totalItem}
-</Badge>
-
-)}
-
-
+                {totalItem > 0 && (
+                  <Badge
+                    pill
+                    bg="danger"
+                    className="position-absolute top-0 start-100 translate-middle dage rounded-pill"
+                    style={{ fontSize: "0.7rem" }}
+                  >
+                    {totalItem}
+                  </Badge>
+                )}
               </Nav.Link>
             </div>
           </div>

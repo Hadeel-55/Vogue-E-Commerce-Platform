@@ -1,7 +1,7 @@
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
+import { Form, Button, Row, Col, Container,ListGroup } from "react-bootstrap";
 import Hero from "../component/Hero";
 import OrderSummary from "../component/OrderSummary";
-
+import orderImg from "../assets/card.jpg";
 const ProductCheckout = () => {
   return (
     <div>
@@ -220,7 +220,87 @@ const ProductCheckout = () => {
             </Row>
           </Col>
           <Col className="mt-5 " lg={4} xs={12}>
-            <OrderSummary />
+            <OrderSummary 
+            show={
+<div>
+          <ListGroup.Item className="bg-transparent px-0 border-0 mt-1">
+          <Row>
+            <Col>
+              <input type="radio" style={{ cursor: "pointer" }} />
+              <label
+                htmlFor=""
+                className="ms-2 fw-semibold "
+                style={{ cursor: "pointer" , fontSize:'16px'}}
+              >
+                Check payments
+              </label>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+
+        <ListGroup.Item
+          className=" mt-2 border-0"
+          style={{ cursor: "pointer" }}
+        >
+          <Row>
+            <Col>
+              <p className="text-secondary"  style={{fontSize:'14px'}}>
+                Please send a check to Store Name, Store Street, Store Town,
+                Store State / County, Store Postcode.
+              </p>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+
+        <ListGroup.Item className="bg-transparent px-0 mt-2 border-0">
+          <Row>
+            <Col className="">
+              <input type="radio" style={{ cursor: "pointer" }} />
+              <label
+                htmlFor=""
+                className="ms-2  fw-semibold "
+                style={{ cursor: "pointer" ,fontSize:'16px'}}
+              >
+                Paypal
+              </label>
+            </Col>
+            <Col className="py-0 text-end">
+              <div className="">
+                <img src={orderImg} alt="" />
+              </div>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+            <ListGroup.Item
+          className=" mt-2 border-0"
+          style={{ cursor: "pointer" }}
+        >
+          <Row>
+            <Col>
+              <p className="text-primary"  style={{fontSize:'14px'}}>
+                Please send a check to Store Name, Store Street, Store Town,
+                Store State / County, Store Postcode.
+              </p>
+            </Col>
+          </Row>
+        </ListGroup.Item>
+
+        <ListGroup.Item className="border-0 px-0 bg-transparent" style={{fontSize:'13px'}}>
+<Row className="mt-2">
+    <Col>
+    <input type="checkbox" />
+    <label htmlFor="" className="text-muted ms-2">I’ve read and accept the 
+        <a href="" className="text-decoration-none"> terms & conditions*</a>
+    </label>
+    </Col>
+</Row>
+        </ListGroup.Item>
+        <Button className="mt-4 textHover fw-semibold" >
+             PROCEED TO PAYPAL
+        </Button>
+</div>
+              
+            } />
           </Col>
         </Row>
       </Container>

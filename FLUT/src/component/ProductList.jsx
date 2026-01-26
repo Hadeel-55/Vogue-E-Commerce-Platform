@@ -1,6 +1,7 @@
 import { Row, Col, Pagination } from "react-bootstrap";
 import ProductCard from "./ProductCard";
-import { lazy, useState } from "react";
+import { useState } from "react";
+
 const ProductList = ({ Products }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
@@ -10,7 +11,7 @@ const ProductList = ({ Products }) => {
 
   const currentProducts = Products?.slice(
     indexOfFirstProduct,
-    indexOfLastProduct
+    indexOfLastProduct,
   );
   const totalPages = Math.ceil((Products?.length || 0) / productsPerPage);
 

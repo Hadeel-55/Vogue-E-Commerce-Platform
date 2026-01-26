@@ -10,6 +10,8 @@ import ShopCategory from './Pages/ShopCategory';
 import Contact from './Pages/Contact';
 import Login from './Pages/Login';
 import Tracking from './Pages/Tracking';
+import Confirmation from './Pages/Confirmation';
+import ProductDetails from './Pages/ProductDetails';
 import "./App.css";
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
    <Route path='/contact' element={<Contact/>} />
    <Route path='/Login' element={<Login/>} />
    <Route path='/Teacking' element={<Tracking/>} />
+   <Route path='/Confirmation' element={<Confirmation/>} />
+   <Route path="/product/:id" element={<ProductDetails />} />
  </Routes>
 
  <Newslatter/>
