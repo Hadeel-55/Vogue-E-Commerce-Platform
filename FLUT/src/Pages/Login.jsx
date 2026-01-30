@@ -29,7 +29,7 @@ const [password, setPassword] = useState("");
   };
 
   return (
-    <div>
+    <div >
       <Hero
         height={"400px"}
         title={"Login/Register"}
@@ -45,7 +45,8 @@ const [password, setPassword] = useState("");
         }
       />
 
-      <Container>
+      <Container  data-aos="fade-up"
+     data-aos-duration="3000">
         <Row className="justify-content-center mt-5">
           <Col lg={10} xs={12}>
             <Card className="mt-5 border-0 ">

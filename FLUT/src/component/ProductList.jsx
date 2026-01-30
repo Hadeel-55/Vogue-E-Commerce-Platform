@@ -18,7 +18,7 @@ const ProductList = ({ Products }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
+    <div >
       <h1 className="text-center pt-5">Featured Products</h1>
       <p className="text-center mt-3 text-muted">
         Who are in extremely love with eco friendly system.
@@ -32,14 +32,14 @@ const ProductList = ({ Products }) => {
         ))}
       </Row>
 
-      <div className="d-flex justify-content-center ,t-5">
+      <div className="d-flex justify-content-center mt-5 ">
         <Pagination>
-          <Pagination.Prev
+          <Pagination.Prev className="hovrBtn"
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
           />
           {[...Array(totalPages)].map((_, index) => (
-            <Pagination.Item
+            <Pagination.Item className="hovrBtn"
               key={index + 1}
               active={index + 1 === currentPage}
               onClick={() => paginate(index + 1)}
@@ -48,7 +48,7 @@ const ProductList = ({ Products }) => {
             </Pagination.Item>
           ))}
 
-          <Pagination.Next
+          <Pagination.Next className="hovrBtn"
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
           />

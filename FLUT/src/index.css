@@ -12,17 +12,21 @@
   border-bottom: 1px solid #dddcdc !important;
   padding-top: 10px !important;
   display: inline-block;
+
 }
 .no-caret .dropdown-item:hover {
   background-color: blue;
   color: white;
+
 }
 
 .nav-link.active {
   color: blue !important;
+
 }
 .nav-link:hover {
   color: blue !important;
+
 }
 .navBtn:hover {
   color: blue !important;
@@ -94,7 +98,22 @@
   opacity: 1;
   visibility: visible;
   right: 50px;
+
 }
+.hovrCart{
+  transition: all 0.3 ease;
+}
+.hovrCart:hover{
+  transform: scale(1.05) !important;
+}
+
+.hovrBtn{
+  transition: all 0.3 ease;
+}
+.hovrBtn:hover{
+  transform: scale(1.09) !important;
+}
+
 
 .shows button:hover {
   background-color: #f8f9fa !important;

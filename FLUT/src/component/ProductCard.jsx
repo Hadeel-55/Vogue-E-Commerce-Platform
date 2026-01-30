@@ -23,11 +23,14 @@ const ProductCard = ({ product }) => {
 
   const isFavorite = favorites.some((item) => item.id === product.id);
 
-  console.log("Current product:", product);
+
   return (
     <Card
-      className="border-0 position-relative shadow-sm   product-card-container"
+      className="border-0 position-relative shadow-sm hovrCart  product-card-container"
       style={{ width: "15rem", height: "330px", margin: "20px auto" }}
+     data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom"
+     data-aos-duration="2000"
     >
 
        

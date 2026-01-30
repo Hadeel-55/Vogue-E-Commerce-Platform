@@ -12,12 +12,21 @@ import Login from './Pages/Login';
 import Tracking from './Pages/Tracking';
 import Confirmation from './Pages/Confirmation';
 import ProductDetails from './Pages/ProductDetails';
+import AOS from 'aos';
+import { useEffect } from 'react';
+import 'aos/dist/aos.css';
+import Favorites from './Pages/Favorites';
+import { FavoriteProvider } from './context/FavoriteContext';
 import "./App.css";
 
 function App() {
+
+  useEffect(() => {
+  AOS.init();
+}, []);
   return <>
   <CartProvider>
-
+  <FavoriteProvider>
 
   <Router>
  <Navbar />
@@ -32,11 +41,15 @@ function App() {
    <Route path='/Teacking' element={<Tracking/>} />
    <Route path='/Confirmation' element={<Confirmation/>} />
    <Route path="/product/:id" element={<ProductDetails />} />
- </Routes>
+ 
+   <Route path='/favorites' element={<Favorites/>} />
 
+ </Routes>
+ 
  <Newslatter/>
 <Footer/>
   </Router>
+  </FavoriteProvider>
    </CartProvider>
   </>
 }

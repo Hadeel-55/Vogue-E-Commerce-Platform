@@ -17,6 +17,7 @@ import review1 from "../assets/review-1.png";
 import review2 from "../assets/review-2.png";
 import review3 from "../assets/review-3.png";
 import { HiStar } from "react-icons/hi";
+import { useState } from "react";
 const ProductDetails = () => {
   const Rating = ({ stars }) => {
     return (
@@ -38,7 +39,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const product = products.find((p) => p.id === parseInt(id));
   if (!product) return <div>Product Not Found!</div>;
-
+const [quantity, setQuantity] = useState(1);
   return (
     <div>
       <Hero
@@ -78,8 +79,10 @@ const ProductDetails = () => {
                 ${product.price.toFixed(2)}
               </strong>
 
-              <span className="">
-                Availibility : {product.inStock ? "In stok" : "out to stok"}
+              <span className="fw-bold" >
+                Availibility : <span style={{color: product.inStock ? '#20ad0dd7' : '#ce0a0a'}}>
+                   {product.inStock ? "In stok" : "out to stok"}
+                  </span>
               </span>
             </div>
 
@@ -95,8 +98,11 @@ const ProductDetails = () => {
                 <Form.Control
                   type="number"
                   min={1}
+                  value={quantity}
+                  onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                   style={{ width: "4rem" }}
                   className="shadow-none"
+                  
                 />
               </div>
               {product.quantity}
@@ -104,7 +110,7 @@ const ProductDetails = () => {
 
             <Button
               className="rounded-0 mt-4 textHover fw-semibold"
-              onClick={() => addToCart(product)}
+              onClick={() => addToCart({ ...product, quantity })}
             >
               ADD TO CART
             </Button>
@@ -380,7 +386,7 @@ const ProductDetails = () => {
                         <Col lg={7} xs={7}>
                           <h5 className="fw-bold">Based on 3 Reviews</h5>
 
-                          <p
+                          <div
                             className="text-muted mb-0"
                             style={{ fontSize: "14px" }}
                           >
@@ -389,9 +395,9 @@ const ProductDetails = () => {
                               <Rating stars={5} />
                             </span>{" "}
                             01
-                          </p>
+                          </div>
 
-                          <p
+                          <div
                             className="text-muted mb-0 "
                             style={{ fontSize: "14px" }}
                           >
@@ -400,9 +406,9 @@ const ProductDetails = () => {
                               <Rating stars={4} />
                             </span>{" "}
                             01
-                          </p>
+                          </div>
 
-                          <p
+                          <div
                             className="text-muted mb-0"
                             style={{ fontSize: "14px" }}
                           >
@@ -411,9 +417,9 @@ const ProductDetails = () => {
                               <Rating stars={3} />
                             </span>{" "}
                             01
-                          </p>
+                          </div>
 
-                          <p
+                          <div
                             className="text-muted mb-0"
                             style={{ fontSize: "14px" }}
                           >
@@ -422,9 +428,9 @@ const ProductDetails = () => {
                               <Rating stars={2} />
                             </span>{" "}
                             01
-                          </p>
+                          </div>
 
-                          <p
+                          <div
                             className="text-muted mb-0"
                             style={{ fontSize: "14px" }}
                           >
@@ -433,7 +439,7 @@ const ProductDetails = () => {
                               <Rating stars={1} />
                             </span>{" "}
                             01
-                          </p>
+                          </div>
                         </Col>
                       </Row>
 
@@ -515,7 +521,7 @@ const ProductDetails = () => {
                   </Col>
                   <Col lg={6} className="mt-4 ">
                     <h4 className="mb-4">Add a Review</h4>
-                    <p className="text-primary">Your Rating: <span><Rating stars={5}/></span> Outstanding</p>
+                    <div className="text-primary">Your Rating: <span><Rating stars={5}/></span> Outstanding</div>
                     <Form className="d-flex flex-column gap-2">
                       <Form.Group>
                         <Form.Control

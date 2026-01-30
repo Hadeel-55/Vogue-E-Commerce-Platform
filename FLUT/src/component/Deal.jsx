@@ -6,8 +6,9 @@ import logo4 from "../assets/c-logo-0.png";
 import logo5 from "../assets/c-logo-5.png";
 const Deal = () => {
   return (
-    <div className="container mb-5 mt-5 ">
-      <div className="row mt-5 g-4 justify-content-center">
+    <div className="container mb-5 mt-5 " >
+      <div className="row mt-5 g-4 justify-content-center" data-aos="fade-up"
+     data-aos-duration="3000">
         <div className="col-lg-6 col-12 mt-5">
           <div
             className="text-white text-center d-flex flex-column justify-content-center align-items-center dealImg position-relative overflow-hidden"
@@ -54,15 +55,12 @@ const Deal = () => {
         </div>
       </div>
 
-   <div className="row align-items-center justify-content-between g-4 mt-5">
-        
-   
+      <div className="row align-items-center justify-content-between g-4 mt-5"  data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="2500"> 
         <div className="col-6 col-md-4 col-lg-2 text-center">
-          <img 
-            src={logo1} 
-            alt="brand" 
-            className="img-fluid brand-logo" 
-          />
+          <img src={logo1} alt="brand" className="img-fluid brand-logo" />
         </div>
 
         <div className="col-6 col-md-4 col-lg-2 text-center">
@@ -76,11 +74,10 @@ const Deal = () => {
         <div className=" col-lg-2 text-center d-none d-lg-block">
           <img src={logo4} alt="brand" className="img-fluid brand-logo" />
         </div>
- 
+
         <div className="col-lg-2 text-center d-none d-lg-block">
           <img src={logo5} alt="brand" className="img-fluid brand-logo" />
         </div>
-
       </div>
     </div>
   );

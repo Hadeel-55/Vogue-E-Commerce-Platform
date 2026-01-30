@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import { FaUser, FaSearch, FaTimes } from "react-icons/fa";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import logo from "../assets/logo.png";
-ئ;
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -139,8 +138,7 @@ const Navbar = () => {
             </div>
             <div className=" navDiv">
               <Nav.Link
-                as={Link}
-                to="/profile"
+             
                 className=" border-lg-start border-lg-end "
               >
                 <FaUser />
@@ -150,7 +148,7 @@ const Navbar = () => {
             <div className=" navDiv">
               <Nav.Link
                 as={Link}
-                to="/wonder"
+                to="/favorites"
                 className=" border-lg-start border-lg-end "
               >
                 <FiHeart />

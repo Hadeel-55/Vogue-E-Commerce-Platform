@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { Container, Button, ListGroup, Form, Col, Row } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 const CartItem = ({ item }) => {
-  const { removeFromCart, updateQuantity, totalPrice } =
+const { removeFromCart, updateQuantity } =
     useContext(CartContext);
   if (!item) return null;
 
@@ -27,7 +27,7 @@ const CartItem = ({ item }) => {
           </Col>
 
           <Col xs={2} md={2}>
-            <div className="fw-bold">$ {item.price.toFixed(2)}</div>
+            <div className="fw-bold">$ {item.price ? item.price.toFixed(2) : "0.00"}</div>
           </Col>
           <Col xs={2} md={2}>
             <Form.Control
